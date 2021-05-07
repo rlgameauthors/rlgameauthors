@@ -6,8 +6,6 @@ The purpose of this repository is to provide code and data to replicate our resu
 
 ## Requirements
 
-## Requirements
-
 - `requirements_study1.txt` provides the list of libraries needed for study1.
 - `requirements_study2.txt` provides the list of libraries needed for study2.
 
