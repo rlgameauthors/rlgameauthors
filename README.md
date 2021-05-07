@@ -6,9 +6,16 @@ The purpose of this repository is to provide code and data to replicate our resu
 
 ## Requirements
 
-- Python 3.8
-- gym
+## Requirements
 
+- `requirements_study1.txt` provides the list of libraries needed for study1.
+- `requirements_study2.txt` provides the list of libraries needed for study2.
+
+In order to install the requirements run the following command in your virtual environment:
+
+```
+pip install -r requirements_study<x>.txt 
+```
 
 ## Content
 
