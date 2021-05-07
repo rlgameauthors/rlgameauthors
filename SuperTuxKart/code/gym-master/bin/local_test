@@ -1,0 +1,48 @@
+#!/bin/bash
+# This script is the entrypoint for our Docker image.
+
+set -ex
+
+# Set up display; otherwise rendering will fail
+display=9
+export DISPLAY=:$display
+Xvfb $DISPLAY -screen 0, 1280x1024x24 > xorg.log 2> xorg.err.log &
+XVFB_PID=$!
+
+echo "Waiting for $file to be created..."
+file="/tmp/.X11-unix/X$display"
+for i in $(seq 1 10); do
+    if [ -e "$file" ]; then
+	break
+    fi
+
+    sleep "$i"
+done
+if ! [ -e "$file" ]; then
+    echo "Timing out: $file was not created"
+    exit 1
+fi
+
+
+if [ $1 == "--debug-video" ]; then
+    if [ -e "display.flv" ]; then
+        rm display.flv
+    fi
+    
+    ffmpeg -f x11grab -framerate 60 -i $DISPLAY.0 -c:v libx264 -b:v 1600k -preset ultrafast -b 900k -x264opts keyint=50 -g 25 -pix_fmt yuv420p -f flv display.flv > /dev/null 2> /dev/null &
+    FFMPEG_PID=$!
+    echo $FFMPEG_PID
+    shift
+else
+    x11vnc -display $DISPLAY -bg -nopw -listen localhost -xkb
+fi
+
+cleanup() {
+    kill -SIGINT $FFMPEG_PID 
+    kill -SIGINT $XVFB_PID
+}
+
+trap 'cleanup' SIGINT
+
+$@ || echo 'An error occurred while running the script!'
+cleanup
