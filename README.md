@@ -1,6 +1,6 @@
-# RL-testing-games
+# rlgameauthors
 
-`RL-testing-games` is the replication package of the work *“Using Reinforcement Learning for Load Testing of Video Games”*.
+`rlgameauthors` is the replication package of the work *“Using Reinforcement Learning for Load Testing of Video Games”*.
 
 The purpose of this repository is to provide code and data to replicate our results.
 
