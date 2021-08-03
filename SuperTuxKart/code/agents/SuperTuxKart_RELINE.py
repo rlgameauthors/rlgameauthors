@@ -47,7 +47,7 @@ REPLAY_START_SIZE = 10000
 EPSILON_DECAY_LAST_FRAME = 150000
 EPSILON_START = 1
 EPSILON_FINAL = 0.01
-THRESHOLD = 19.35
+THRESHOLD = 16.32
 new_threshold = THRESHOLD  # for training without pregames
 NUM_PREGAMES = 100
 
@@ -142,7 +142,7 @@ class Agent:
             return None
 
     def _reward1(self, path_done_a, position=0):
-        if abs(position) > 5:
+        if abs(position) > 20:
             return -1
         if path_done_a - self.path_done >= 10:
             return 10
@@ -349,7 +349,7 @@ if __name__ == "__main__":
                         print('100 games after the base training')
                         first_quartile = round(np.percentile(info_for_thrasholds, 25), 2)
                         third_quartile = round(np.percentile(info_for_thrasholds, 75), 2)
-                        delta = max(first_quartile - 12.39, third_quartile - 12.86)
+                        delta = max(first_quartile - 12.48, third_quartile - 13.01)
                         new_threshold = threshold + delta
                         print('1st quartile: %.2f , 3rd quartile: %.2f , delta: %d'
                               % (first_quartile, third_quartile, delta))
