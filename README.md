@@ -46,7 +46,7 @@ The `MsPacman` folder contains everything needed to replicate study 1 on MsPacma
 
 The `SuperTuxKart` folder contains everything needed to replicate study 2 on SuperTuxKart game.
 
-- `300episodes_RL-baseline_agent.csv`, `300episodes_same_actions.csv` files containing information about the rendering time of frames collected during 300 episodes played by the RL-baseline best agent and 300 episodes played performing always the same actions respectively. We used this information to verify the stability of the metric used and to evaluate the threshold needed for the RELINE approach’s reward function.
+- `300episodes_RL-baseline_agent.xlsx`, `300episodes_same_actions.csv` files containing information about the rendering time of frames collected during 300 episodes played by the RL-baseline best agent and 300 episodes played performing always the same actions respectively. We used this information to verify the stability of the metric used and to evaluate the threshold needed for the RELINE approach’s reward function.
 - `300episodes_RL-baseline_agent.png`, `300episodes_same_actions.png` images graphically showing the information about the rendering time of frames contained in the 300episodes_RL-baseline_agent.csv` and `300episodes_same_actions.csv` files.
 - `FPS_info_RELINE.xlsx`, `FPS_info_RL-baseline.xlsx`, `FPS_info_Random.xlsx` files containing information about the rendering time of frames collected during episodes played by the different agents trained with the 3 different approaches (RELINE, RL-baseline, Random).
 - `RELINE_training.png`, `RL-baseline_training.png` images showing the mean reward (of last 100 games) during the training of the agents using the RELINE approach and the RL-baseline.
