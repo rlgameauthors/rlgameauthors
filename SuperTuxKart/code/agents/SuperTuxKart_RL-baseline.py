@@ -136,7 +136,7 @@ class Agent:
             return None
 
     def _reward1(self, path_done_a, position=0):
-        if abs(position) > 5:
+        if abs(position) > 20:
             return -1
         if path_done_a - self.path_done >= 10:
             return 10
